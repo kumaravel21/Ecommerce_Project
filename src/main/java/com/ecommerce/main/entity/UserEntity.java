@@ -1,8 +1,8 @@
 package com.ecommerce.main.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -70,7 +70,7 @@ public class UserEntity {
 	private UserProfileEntity userProfile;
 	
 	@OneToMany(mappedBy = "userOrder", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	List<OrderEntity> orderList = new ArrayList<OrderEntity>();
+	Set<OrderEntity> orderList = new HashSet<OrderEntity>();
 	
 	@PrePersist
     protected void onCreate() {
